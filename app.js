@@ -2,6 +2,7 @@ process.env.NODE_ENV = 'development';
 process.env.NODE_APP_INSTANCE = 'development';
 var restify = require('restify');
 var bodyParser = require('body-parser');
+var checkAuth = require('./middlewares/checkAuth');
 var port = 8080;
 
 var app = restify.createServer();
@@ -13,8 +14,12 @@ restify.CORS.ALLOW_HEADERS.push('test');
 app.use(restify.CORS());
 app.use(restify.fullResponse());
 
+require('./routes/users')(app);
+require('./routes/auth')(app);
 
+app.use(checkAuth);
 require('./routes/repos')(app);
+
 
 app.listen(port, function () {
 	console.log('Server is listening on http://localhost:' + port);

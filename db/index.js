@@ -5,6 +5,7 @@ var db = new tingo.Db('./data', {});
 var models = {
 	User: db.collection('users'),
 	Comment: db.collection('comments'),
+	Session: db.collection('sessions'),
 	thunk: {}
 };
 
