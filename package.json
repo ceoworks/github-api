@@ -4,7 +4,7 @@
   "description": "Hello, there",
   "main": "app.js",
   "scripts": {
-    "start": "pm2 start app.js --watch",
+    "start": "pm2 start app.js --watch --log-date-format 'YY-MM-DD HH:mm:ss.SS'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
